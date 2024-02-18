@@ -16,3 +16,13 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+  security:
+    oauth2:
+      resourceserver:
+        opaque-token:
+          introspection-uri: http://localhost:4445/admin/oauth2/introspect
+          client-id: 89125e55-c393-4ee3-8532-1a0cd8ce78f9
+          client-secret: aQMEjsDNBJaLD5DQpMJA~ENwrb
+
+server:
+  port: 8082

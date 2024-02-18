@@ -1,0 +1,16 @@
+CREATE TABLE carts (
+    cart_id       VARCHAR(36)  NOT NULL PRIMARY KEY,
+    user_id       VARCHAR(36)  NOT NULL,
+    created_at    DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at    DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cart_items (
+    id          INT          NOT NULL DEFAULT 0 AUTO_INCREMENT PRIMARY KEY,
+    cart_id     VARCHAR(36)  NOT NULL,
+    item_id     VARCHAR(36)  NOT NULL,
+    quantity    INT          NOT NULL,
+    created_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_cart_cart_items FOREIGN KEY (cart_id) REFERENCES carts(cart_id)
+);
